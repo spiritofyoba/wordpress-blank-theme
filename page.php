@@ -1,41 +1,39 @@
 <?php get_header(); ?>
-
 <main role="main">
+    <div class="container">
+        <section class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
 
-    <section>
+            <h1><?php the_title(); ?></h1>
 
-        <h1><?php the_title(); ?></h1>
+			<?php if ( have_posts() ): while ( have_posts() ) : the_post(); ?>
 
-        <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<?php the_content(); ?>
 
-                <?php the_content(); ?>
+					<?php comments_template( '', true ); ?>
 
-                <?php comments_template('', true); ?>
+                    <br class="clear">
 
-                <br class="clear">
+					<?php edit_post_link(); ?>
 
-                <?php edit_post_link(); ?>
+                </article>
 
-            </article>
+			<?php endwhile; ?>
 
-        <?php endwhile; ?>
+			<?php else: ?>
 
-        <?php else: ?>
+                <article>
 
-            <article>
+                    <h2><?php _e( 'Sorry, nothing to display.', 'blank_theme' ); ?></h2>
 
-                <h2><?php _e('Sorry, nothing to display.', 'blank_theme'); ?></h2>
+                </article>
 
-            </article>
+			<?php endif; ?>
 
-        <?php endif; ?>
+        </section>
 
-    </section>
-
+		<?php get_sidebar(); ?>
+    </div>
 </main>
-
-<?php get_sidebar(); ?>
-
 <?php get_footer(); ?>

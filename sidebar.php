@@ -1,4 +1,4 @@
-<aside class="sidebar" role="complementary">
+<aside class="sidebar col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3" role="complementary">
 
     <?php get_template_part('searchform'); ?>
 

@@ -1,6 +1,6 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 
         <?php if (has_post_thumbnail()) : ?>
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
